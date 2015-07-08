@@ -25,6 +25,7 @@ type Playfield struct {
     PosY int8
 }
 
+
 func (p *Playfield) GetPosX() int8 {
   return p.PosX
 }
@@ -41,16 +42,12 @@ func (p *Playfield) GetMatrix() [][]int8 {
 }
 
 func (p *Playfield)init (givenWidth uint8, givenHeight uint8) {
-  p.Matrix = make([][]int8, 10)
-  for y:= givenHeight-1; y >= 0; y-- {
-    p.Matrix[y] = make([]int8, 10)
-    for x:= givenWidth-1; x >= 0; x-- {
-      p.Matrix[y][x] = 1
-      // if y == (givenHeight- 1) ||  y == 0 || x == (givenWidth - 1)  {
-      //   p.Matrix[y][x] = 1 
-      // } else {
-      //   p.Matrix[y][x] = 0 
-      // }
+  p.Matrix = make([][]int8, givenHeight)
+  for y,_ := range  p.Matrix  {
+     p.Matrix[y] = make([]int8, givenWidth)
+    for x,_ := range p.Matrix[y] {
+      p.Matrix[y][x]=1
+    // fmt.Println("Hello, playground" + strconv.Itoa(i)+"-" + strconv.Itoa(j))
     }
   }
 }

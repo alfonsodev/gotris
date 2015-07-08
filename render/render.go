@@ -90,9 +90,6 @@ func PrintObject(p Printable){
 	matrix := p.GetMatrix()
 	// colors := []termbox.Attribute{Red, Green, Yellow, Blue, Magenta, Cyan, Yellow}
 	// colors[p.GetColor()]
-	if len(matrix[0]) == 10 {
-		panic("in the disco")
-	}
 
  	for y := len(matrix)-1; y >= 0; y-- {
     	for x := len(matrix[0])-1; x>=0; x-- {
