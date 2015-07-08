@@ -1,14 +1,14 @@
 package menu
 
-import(
+import (
 	"github.com/alfonsodev/gotris/render"
 	"time"
-//	"os"
+	//	"os"
 )
 
 type Menu struct {
 	Selected int
-	Options []string
+	Options  []string
 }
 
 func (m *Menu) Show() int {
@@ -39,16 +39,15 @@ func (m *Menu) Show() int {
 		default:
 			render.PrintMenu(m.Selected, m.Options)
 			render.Render()
-		 	time.Sleep(100*time.Millisecond)
+			time.Sleep(100 * time.Millisecond)
 		}
 
 	}
 }
 
-
-func NewMenu(selected int, options []string) Menu{
+func NewMenu(selected int, options []string) Menu {
 	var m Menu
-	m.Selected = selected 
+	m.Selected = selected
 	m.Options = options
 	return m
 }

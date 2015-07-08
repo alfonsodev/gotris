@@ -1,5 +1,6 @@
 package render
-import(
+
+import (
 	"github.com/nsf/termbox-go"
 	"strconv"
 )
@@ -7,7 +8,7 @@ import(
 var EventQueue chan termbox.Event
 var Public int
 
-type Printable interface{
+type Printable interface {
 	GetMatrix() [][]int8
 	GetPosX() int8
 	GetPosY() int8
@@ -18,19 +19,19 @@ const (
 	Black = termbox.ColorBlack
 	White = termbox.ColorWhite
 
-	Red = termbox.ColorRed
-	Green = termbox.ColorGreen
-	Yellow = termbox.ColorYellow
-  	Blue = termbox.ColorBlue
-  	Magenta = termbox.ColorMagenta
-    Cyan = termbox.ColorCyan
+	Red     = termbox.ColorRed
+	Green   = termbox.ColorGreen
+	Yellow  = termbox.ColorYellow
+	Blue    = termbox.ColorBlue
+	Magenta = termbox.ColorMagenta
+	Cyan    = termbox.ColorCyan
 
-	Left = termbox.KeyArrowLeft
+	Left  = termbox.KeyArrowLeft
 	Right = termbox.KeyArrowRight
-	Up = termbox.KeyArrowUp
-	Down = termbox.KeyArrowDown
+	Up    = termbox.KeyArrowUp
+	Down  = termbox.KeyArrowDown
 	Space = termbox.KeySpace
-	Esc = termbox.KeyEsc
+	Esc   = termbox.KeyEsc
 	Enter = termbox.KeyEnter
 )
 
@@ -77,27 +78,27 @@ func main() {
 }
 
 func PrintMenu(selected int, options []string) {
-	for i, val := range options{
+	for i, val := range options {
 		if selected == i {
-			String(0, i, Red, White, strconv.Itoa(i) + "> " + val + " " + strconv.Itoa(selected))
+			String(0, i, Red, White, strconv.Itoa(i)+"> "+val+" "+strconv.Itoa(selected))
 		} else {
-			String(0, i, White, Black, strconv.Itoa(i) + "  " + val)
+			String(0, i, White, Black, strconv.Itoa(i)+"  "+val)
 		}
 	}
 }
 
-func PrintObject(p Printable){
+func PrintObject(p Printable) {
 	matrix := p.GetMatrix()
 	// colors := []termbox.Attribute{Red, Green, Yellow, Blue, Magenta, Cyan, Yellow}
 	// colors[p.GetColor()]
 
- 	for y := len(matrix)-1; y >= 0; y-- {
-    	for x := len(matrix[0])-1; x>=0; x-- {
-			if (matrix[y][x] != 0) {
-				String((int(p.GetPosX()) + x)*2 , int(p.GetPosY()) + y,  White, Black, "[]")
+	for y := len(matrix) - 1; y >= 0; y-- {
+		for x := len(matrix[0]) - 1; x >= 0; x-- {
+			if matrix[y][x] != 0 {
+				String((int(p.GetPosX())+x)*2, int(p.GetPosY())+y, White, Black, "[]")
 			}
-	    }
-	}	
+		}
+	}
 }
 
 //  positionX = this.wPosX + leftPadding + ((posX + x) * 2 + 1);
@@ -110,6 +111,3 @@ func PrintObject(p Printable){
 //   this.switchColor(8);
 //   charm.write('..');
 // }
-
-
-
