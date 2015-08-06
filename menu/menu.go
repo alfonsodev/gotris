@@ -1,8 +1,7 @@
 package menu
 
 import (
-	"github.com/alfonsodev/gotris/render"
-	"time"
+ 	"time"
 	//	"os"
 )
 
@@ -13,9 +12,6 @@ type Menu struct {
 
 func (m *Menu) Show() int {
 	for {
-		render.Clear()
-		render.PrintMenu(m.Selected, m.Options)
-		render.Render()
 		select {
 		case ev := <-render.EventQueue:
 			switch {
@@ -37,9 +33,7 @@ func (m *Menu) Show() int {
 				}
 			}
 		default:
-			render.PrintMenu(m.Selected, m.Options)
-			render.Render()
-			time.Sleep(100 * time.Millisecond)
+ 
 		}
 
 	}

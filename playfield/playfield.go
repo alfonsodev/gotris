@@ -8,11 +8,13 @@ import (
 const (
 	emptyBlock = 0
 	wallBlock  = 9
+	height = 23 
+	width = 12  
 )
 
 func New() Playfield {
 	var p Playfield
-	p.init(10, 10)
+	p.init(width, height)
 	return p
 }
 
@@ -45,8 +47,9 @@ func (p *Playfield) init(givenWidth uint8, givenHeight uint8) {
 	for y, _ := range p.Matrix {
 		p.Matrix[y] = make([]int8, givenWidth)
 		for x, _ := range p.Matrix[y] {
-			p.Matrix[y][x] = 1
-			// fmt.Println("Hello, playground" + strconv.Itoa(i)+"-" + strconv.Itoa(j))
+			if uint8(y)==givenHeight-1 || x == 0 || uint8(x)==givenWidth-1  { 
+				p.Matrix[y][x] = 1
+			}
 		}
 	}
 }

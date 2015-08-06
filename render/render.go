@@ -73,6 +73,7 @@ func String(x, y int, fg, bg termbox.Attribute, msg string) {
 		x++
 	}
 }
+
 func main() {
 
 }
@@ -89,13 +90,12 @@ func PrintMenu(selected int, options []string) {
 
 func PrintObject(p Printable) {
 	matrix := p.GetMatrix()
-	// colors := []termbox.Attribute{Red, Green, Yellow, Blue, Magenta, Cyan, Yellow}
-	// colors[p.GetColor()]
-
+	colors := []termbox.Attribute{Red, Green, Yellow, Blue, Magenta, Cyan, Yellow}
+	
 	for y := len(matrix) - 1; y >= 0; y-- {
 		for x := len(matrix[0]) - 1; x >= 0; x-- {
 			if matrix[y][x] != 0 {
-				String((int(p.GetPosX())+x)*2, int(p.GetPosY())+y, White, Black, "[]")
+				String((int(p.GetPosX())+x)*2, int(p.GetPosY())+y, White, colors[p.GetColor()], "[]")
 			}
 		}
 	}
