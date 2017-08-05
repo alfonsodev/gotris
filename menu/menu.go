@@ -1,8 +1,9 @@
 package menu
 
 import (
- 	"time"
-	//	"os"
+  "github.com/alfonsodev/gotris/render"
+// 	"time"
+//	"os"
 )
 
 type Menu struct {
@@ -33,7 +34,7 @@ func (m *Menu) Show() int {
 				}
 			}
 		default:
- 
+
 		}
 
 	}
