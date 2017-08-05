@@ -1,9 +1,27 @@
 # Gotris
-tetris implemented in go.  
-Disclaimer, This is work in progress in very early stage, 
-for the moment you can run it with  
-`go build`  && `./gotris`  
+tetris implementation in go.
+## ⚠️WIP Disclaimer:
+This is work in progress in very early stage.
 
-Up arraw switch between different types of tetrominos, 
-down arrow switch rotates them. 
+## Try it :
+
+```
+go get alfonsodev/gotris
+cd $GOPATH/src/github.com/alfonsodev/gotris
+go build
+./gotris
+```
+
+## Current state
+
+The current state just shows the Tetrominos.
+- Use enter key to start.
+- Up arraw switch between different types of tetrominos.
+- Down arrow to rotate them.
+
+## Improvements:
 Input should include the package read the key event as a primitive and emit input.Key type menu, then comunicate via channels to the other components
+
+
+![Optional Text](../master/docs/gotris.png)
+
