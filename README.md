@@ -23,5 +23,4 @@ The current state just shows the Tetrominos.
 Input should include the package read the key event as a primitive and emit input.Key type menu, then comunicate via channels to the other components
 
 
-![Optional Text](../master/docs/gotris.png)
-
+![Gotris demo](../master/docs/gotris.gif)
